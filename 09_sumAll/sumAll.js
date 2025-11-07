@@ -1,24 +1,21 @@
 function sumAll(a,b) {
-    if(typeof(a), typeof(b) != "number") {
-        return "ERROR";
-    } else if (Number.isInteger(a) === false) {
+    if(typeof(a), typeof(b) != "number") {              // looking at the solution, could have folded this into the integer check below - because that checks 
+        return "ERROR";                                 // both whether it is an number and an integer, whereas I did two separate checks... 
+    } else if (Number.isInteger(a) === false) {         
         return "ERROR";
     } else if (Number.isInteger(b) === false) {
         return "ERROR";
-    } else {
+    } else if  {
         const array = [];
         array.push(a,b);
         array.sort(function(a,b){return a - b});
         let lowerNum = array[0];
         let higherNum = array[1];
-    // console.log(`The lower number is ${lowerNum} and the higher number is ${higherNum}`);
-    // console.log(typeof(lowerNum), typeof(higherNum));
-    // console.log(lowerNum + higherNum);
-        if (higherNum + lowerNum < 0) {
-            return "ERROR";
+        if (higherNum + lowerNum < 0) {                 // although this passed tests it is not strictly correct as a very high positive number 
+            return "ERROR";                             // would negate a low negative number, really should have checked if each parameter was below 0. 
         } else { 
             let sumOfAllNums = 0;
-            for (let i = lowerNum; i <= higherNum; i++) {
+            for (let i = lowerNum; i <= higherNum; i++) {       //this was the correct way to run this loop
                 sumOfAllNums += i;
             };
             return sumOfAllNums
